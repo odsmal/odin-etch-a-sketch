@@ -11,10 +11,35 @@ function createSquares(number) {
 }
 
 function addColor(e) {
-  const randomColor = "#" + (((1 << 24) * Math.random()) | 0).toString(16);
-  e.target.style.setProperty("background-color", randomColor);
+  const backgroundColor = e.target.style.backgroundColor;
+  if (backgroundColor === "") {
+    const randomColor = "#" + (((1 << 24) * Math.random()) | 0).toString(16);
+    e.target.style.setProperty("background-color", randomColor);
+  }
 }
 
-createSquares(64);
-const keys = Array.from(document.querySelectorAll(".square"));
-keys.forEach((key) => key.addEventListener("mouseover", addColor));
+function addBlack(e) {
+  const brightness = e.target.style.filter.toString();
+  const brightnessLength = brightness.length;
+  const backgroundColor = e.target.style.backgroundColor;
+  if (brightnessLength === 0 && backgroundColor != "") {
+    e.target.style.setProperty("filter", "brightness(90%)");
+  }
+
+  if (brightnessLength === 15) {
+    const currentBrightness = parseInt(brightness.slice(11, 13));
+    const newBrightness = currentBrightness - 10;
+    e.target.style.setProperty("filter", "brightness(" + newBrightness + "%)");
+  }
+}
+
+function colorMeBlack(e){
+  addColor(e);
+  addBlack(e);
+}
+
+createSquares(625);
+
+const squares = Array.from(document.querySelectorAll(".square"));
+squares.forEach((square) => square.addEventListener("mouseover", colorMeBlack));
+
