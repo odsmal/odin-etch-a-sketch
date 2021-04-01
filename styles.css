@@ -1,0 +1,27 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: black;
+}
+
+.container {
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  background: black;
+  display: grid;
+  /* grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr); */
+  grid-gap: 1px;
+}
+
+.square {
+  background: rgb(146, 135, 250);
+  transition: 0.1s;
+}
+/* .container > div:hover {
+    background: rgb(32, 24, 100);
+    transition-timing-function: ease-out;
+} */
