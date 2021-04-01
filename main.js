@@ -33,13 +33,20 @@ function addBlack(e) {
   }
 }
 
-function colorMeBlack(e){
+function colorMeBlack(e) {
   addColor(e);
   addBlack(e);
 }
 
-createSquares(625);
+function resetSquares() {
+  document.querySelector(".container").replaceChildren();
+  createSquares(16);
+  const squares = Array.from(document.querySelectorAll(".square"));
+  squares.forEach((square) =>
+    square.addEventListener("mouseover", colorMeBlack)
+  );
+}
 
-const squares = Array.from(document.querySelectorAll(".square"));
-squares.forEach((square) => square.addEventListener("mouseover", colorMeBlack));
+resetSquares();
 
+document.querySelector(".button").addEventListener("click", resetSquares);
