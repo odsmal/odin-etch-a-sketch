@@ -40,11 +40,16 @@ function colorMeBlack(e) {
 
 function resetSquares() {
   document.querySelector(".container").replaceChildren();
-  createSquares(16);
+  createSquares(askUser());
   const squares = Array.from(document.querySelectorAll(".square"));
   squares.forEach((square) =>
     square.addEventListener("mouseover", colorMeBlack)
   );
+}
+
+function askUser() {
+  const answer = parseInt(prompt("Please enter squares per side"));
+  if (answer != null) return answer;
 }
 
 resetSquares();
