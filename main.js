@@ -4,6 +4,8 @@ function createSquares(number) {
   for (let i = 0; i < number * number; i++) {
     const newSquare = document.createElement("div");
     newSquare.classList.add("square");
+    newSquare.addEventListener("mouseover", addColor);
+    newSquare.addEventListener("mouseover", addBlack);
     container.appendChild(newSquare);
   }
 }
@@ -31,36 +33,27 @@ function addBlack(e) {
   }
 }
 
-function colorAndBlack(e) {
-  addColor(e);
-  addBlack(e);
-}
-
-function colorSquares() {
-  const squares = document.querySelectorAll(".square");
-  squares.forEach((square) =>
-    square.addEventListener("mouseover", colorAndBlack)
-  );
-}
-
-function resetSquares() {
+function reset() {
   document.querySelector(".container").replaceChildren();
   createSquares(squaresNum);
-  colorSquares();
+  document.querySelector("#size").innerHTML = `${squaresNum}x${squaresNum}`;
 }
 
-function askUser() {
-  answer = parseInt(prompt("Please enter squares per side"));
-  if (answer != null) return answer;
+function newSize() {
+  let answer = prompt("Please enter squares per side");
+  if (answer != null) {
+    answer = parseInt(answer);
+    if (newSize < 1 || newSize > 100 || Number.isNaN(newSize)) {
+      alert("Enter a number from 1-100 range");
+      newSize();
+    } else {
+      squaresNum = answer;
+      reset();
+    }
+  }
 }
 
 let squaresNum = 20;
-resetSquares(squaresNum);
-
-
-document.querySelector(".button").addEventListener("click", resetSquares);
-
-// createSquares(askUser());
-
-// resetSquares();
-
+window.addEventListener("load", reset);
+document.querySelector("#reset").addEventListener("click", reset);
+document.querySelector("#size").addEventListener("click", newSize);

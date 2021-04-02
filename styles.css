@@ -9,10 +9,11 @@ h1 {
   text-align:center;
   font-size: 5em;
 }
-.button {
+button {
+  font-family : inherit;
   display: inline-block;
   padding: 15px 25px;
-  font-size: 24px;
+  font-size: 2em;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
@@ -24,9 +25,9 @@ h1 {
   box-shadow: 0 9px #999;
 }
 
-.button:hover {background-color: rgb(27, 27, 27)}
+button:hover {background-color: rgb(27, 27, 27)}
 
-.button:active {
+button:active {
   background-color:rgb(146, 135, 250);
   box-shadow: 0 5px #666;
   transform: translateY(4px);
@@ -36,7 +37,7 @@ h1 {
   width: 500px;
   height: 500px;
   margin: auto;
-  border: 1px solid black;
+  border: 2px solid black;
   background: rgb(146, 135, 250);
   display: grid;
 }
