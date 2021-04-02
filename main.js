@@ -1,9 +1,7 @@
 function createSquares(number) {
-  const numberSquared = Math.sqrt(number);
   const container = document.querySelector(".container");
-  container.style.gridTemplateColumns = `repeat(${numberSquared}, 1fr)`;
-  container.style.gridTemplateRows = `repeat(${numberSquared}, 1fr)`;
-  for (let i = 0; i < number; i++) {
+  container.style.gridTemplateColumns = `repeat(${number}, 1fr)`;
+  for (let i = 0; i < number * number; i++) {
     const newSquare = document.createElement("div");
     newSquare.classList.add("square");
     container.appendChild(newSquare);
@@ -33,25 +31,36 @@ function addBlack(e) {
   }
 }
 
-function colorMeBlack(e) {
+function colorAndBlack(e) {
   addColor(e);
   addBlack(e);
 }
 
-function resetSquares() {
-  document.querySelector(".container").replaceChildren();
-  createSquares(askUser());
-  const squares = Array.from(document.querySelectorAll(".square"));
+function colorSquares() {
+  const squares = document.querySelectorAll(".square");
   squares.forEach((square) =>
-    square.addEventListener("mouseover", colorMeBlack)
+    square.addEventListener("mouseover", colorAndBlack)
   );
 }
 
+function resetSquares() {
+  document.querySelector(".container").replaceChildren();
+  createSquares(squaresNum);
+  colorSquares();
+}
+
 function askUser() {
-  const answer = parseInt(prompt("Please enter squares per side"));
+  answer = parseInt(prompt("Please enter squares per side"));
   if (answer != null) return answer;
 }
 
-resetSquares();
+let squaresNum = 20;
+resetSquares(squaresNum);
+
 
 document.querySelector(".button").addEventListener("click", resetSquares);
+
+// createSquares(askUser());
+
+// resetSquares();
+

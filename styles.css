@@ -37,6 +37,7 @@ h1 {
   height: 500px;
   margin: auto;
   border: 1px solid black;
+  background: rgb(146, 135, 250);
   display: grid;
 }
 
