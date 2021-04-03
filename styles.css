@@ -1,53 +1,67 @@
-body,
-html {
-  margin: 0;
+:root {
+  --button-color: black;
+  --button-hover: rgb(32, 32, 32);
+  --button-text: white;
+  --button-shadow: #999;
+  --buttonAndGrid: rgb(146, 135, 250);
+  --grid-lines: rgb(155, 144, 247);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   padding: 0;
-  font-family: 'Lobster', cursive;
-  background: white;
+  margin: 0;
 }
-h1 {
-  text-align:center;
-  font-size: 5em;
-  margin-bottom: 0rem;
+
+html {
+  font-family: "Lobster", cursive;
 }
-nav{
+body {
+  font-size: 1.6rem;
   text-align: center;
 }
+
+header {
+  margin-top: 2rem;
+  font-size: 2.5rem;
+}
+
 button {
+  width: 8rem;
   margin: 2rem;
-  font-family : inherit;
-  display: inline-block;
+  font-size: 1.6rem;
+  font-family: inherit;
   padding: 15px 25px;
-  font-size: 2em;
-  cursor: pointer;
-  text-align: center;
   text-decoration: none;
   outline: none;
-  color: #fff;
-  background-color: black;
+  color: var(--button-text);
+  background-color: var(--button-color);
   border: none;
   border-radius: 15px;
-  box-shadow: 0 9px #999;
+  box-shadow: 0 9px var(--button-shadow);
 }
 
-button:hover {background-color: rgb(27, 27, 27)}
+button:hover {
+  background-color: var(--button-hover);
+}
 
 button:active {
-  background-color:rgb(146, 135, 250);
-  box-shadow: 0 5px #666;
+  background-color: var(--button-color);
+  box-shadow: 0 5px var(--button-shadow);
   transform: translateY(4px);
 }
 
 .container {
-  width: 500px;
-  height: 500px;
+  width: 40rem;
+  height: 40rem;
   margin: auto;
   border: 2px solid black;
-  background: rgb(146, 135, 250);
+  background: var(--buttonAndGrid);
   display: grid;
 }
 
 .square {
-  background: rgb(146, 135, 250);
+  background: var(--buttonAndGrid);
+  border: 1px solid var(--grid-lines);
 }
-

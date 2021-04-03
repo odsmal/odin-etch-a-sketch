@@ -29,7 +29,7 @@ function addBlack(e) {
   if (brightnessLength === 15) {
     const currentBrightness = parseInt(brightness.slice(11, 13));
     const newBrightness = currentBrightness - 10;
-    e.target.style.setProperty("filter", "brightness(" + newBrightness + "%)");
+    e.target.style.setProperty("filter", `brightness(${newBrightness}%)`);
   }
 }
 
