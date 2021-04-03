@@ -44,7 +44,7 @@ function newSize() {
   if (answer != null) {
     answer = parseInt(answer);
     if (newSize < 1 || newSize > 100 || Number.isNaN(newSize)) {
-      alert("Enter a number from 1-100 range");
+      alert("Enter a number in the 1-100 range");
       newSize();
     } else {
       squaresNum = answer;
