@@ -17,7 +17,7 @@ body {
   height: 100vh;
 }
 
-main {
+.cell-container {
   display: flex;
   flex-wrap: wrap;
   width: 500px;
