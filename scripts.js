@@ -13,13 +13,14 @@ function lowerBrightness(event) {
 function createGrid(number) {
   for (let i = 0; i < number * number; i++) {
     const newCell = document.createElement("div");
+    newCell.style.setProperty("flex-basis", `calc(100% / ${number})`);
     newCell.classList.add("cell");
     newCell.dataset.brightness = 1;
     cellContainer.appendChild(newCell);
   }
 }
 
-createGrid(7);
+createGrid(10);
 
 // function addColor(e) {
 //   const backgroundColor = e.target.style.backgroundColor;
