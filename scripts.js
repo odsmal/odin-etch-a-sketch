@@ -20,7 +20,7 @@ function createGrid(number) {
   }
 }
 
-createGrid(10);
+createGrid(60);
 
 // function addColor(e) {
 //   const backgroundColor = e.target.style.backgroundColor;

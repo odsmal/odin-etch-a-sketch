@@ -1,8 +1,3 @@
-:root {
-  --cell-color: rgb(173, 216, 230);
-  --cell-border-color: rgb(136, 191, 210);
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -25,6 +20,30 @@ body {
 }
 
 .cell {
-  border: 1px solid var(--cell-border-color);
-  background-color: var(--cell-color);
+  border: 1px solid burlywood;
+}
+
+.cell:nth-child(odd) {
+  background-color: wheat;
+}
+.cell:nth-child(even) {
+  background-color: mediumseagreen;
+}
+.cell:nth-child(3n) {
+  background-color: darkcyan;
+}
+.cell:nth-child(4n) {
+  background-color: mediumorchid;
+}
+.cell:nth-child(5n) {
+  background-color: dodgerblue;
+}
+.cell:nth-child(6n) {
+  background-color: teal;
+}
+.cell:nth-child(7n) {
+  background-color: rosybrown;
+}
+.cell:nth-child(8n) {
+  background-color: lightseagreen;
 }
