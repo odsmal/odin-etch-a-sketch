@@ -1,16 +1,13 @@
-let cellContainer = document.querySelector(".cell-container");
-cellContainer.addEventListener("mouseover", lowerBrightness);
-
 function lowerBrightness(event) {
   if (event.target.dataset.brightness > 0) {
     const newBrightness = event.target.dataset.brightness - 0.1;
     event.target.style.setProperty("filter", `brightness(${newBrightness})`);
     event.target.dataset.brightness = newBrightness;
-    console.log(1);
   }
 }
 
 function createGrid(number) {
+  cellContainer.replaceChildren();
   for (let i = 0; i < number * number; i++) {
     const newCell = document.createElement("div");
     newCell.style.setProperty("flex-basis", `calc(100% / ${number})`);
@@ -20,52 +17,23 @@ function createGrid(number) {
   }
 }
 
-createGrid(60);
+function getGrid() {
+  let answer = parseInt(prompt("Please enter squares per side (1-100)"));
+  if (answer === null || answer < 1 || answer > 100 || Number.isNaN(answer)) {
+    alert("Enter a number in the 1-100 range");
+    return;
+  }
+  gridSide = answer;
+  createGrid(answer);
+}
 
-// function addColor(e) {
-//   const backgroundColor = e.target.style.backgroundColor;
-//   if (backgroundColor === "") {
-//     const randomColor = "#" + (((1 << 24) * Math.random()) | 0).toString(16);
-//     e.target.style.setProperty("background-color", randomColor);
-//   }
-// }
+const cellContainer = document.querySelector(".cell-container");
+const resetBtn = document.querySelector(".reset-btn");
+const promptBtn = document.querySelector(".prompt-btn");
+let gridSide = 10;
 
-// function addBlack(e) {
-//   const brightness = e.target.style.filter.toString();
-//   const brightnessLength = brightness.length;
-//   const backgroundColor = e.target.style.backgroundColor;
-//   if (brightnessLength === 0 && backgroundColor != "") {
-//     e.target.style.setProperty("filter", "brightness(90%)");
-//   }
+cellContainer.addEventListener("mouseover", lowerBrightness);
+resetBtn.addEventListener("click", () => createGrid(gridSide));
+promptBtn.addEventListener("click", getGrid);
 
-//   if (brightnessLength === 15) {
-//     const currentBrightness = parseInt(brightness.slice(11, 13));
-//     const newBrightness = currentBrightness - 10;
-//     e.target.style.setProperty("filter", `brightness(${newBrightness}%)`);
-//   }
-// }
-
-// function reset() {
-//   document.querySelector(".container").replaceChildren();
-//   createSquares(squaresNum);
-//   document.querySelector("#size").innerHTML = `${squaresNum}x${squaresNum}`;
-// }
-
-// function newSize() {
-//   let answer = prompt("Please enter squares per side");
-//   if (answer != null) {
-//     answer = parseInt(answer);
-//     if (newSize < 1 || newSize > 100 || Number.isNaN(newSize)) {
-//       alert("Enter a number in the 1-100 range");
-//       newSize();
-//     } else {
-//       squaresNum = answer;
-//       reset();
-//     }
-//   }
-// }
-
-// let squaresNum = 20;
-// window.addEventListener("load", reset);
-// document.querySelector("#reset").addEventListener("click", reset);
-// document.querySelector("#size").addEventListener("click", newSize);
+createGrid(gridSide);

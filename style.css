@@ -7,20 +7,25 @@
 body {
   font-family: sans-serif;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  gap: 40px;
 }
-
+.btn-container {
+  display: flex;
+  gap: 40px;
+}
+button {
+  min-width: 120px;
+  min-height: 20px;
+}
 .cell-container {
   display: flex;
   flex-wrap: wrap;
   width: 500px;
   height: 500px;
-}
-
-.cell {
-  border: 1px solid burlywood;
 }
 
 .cell:nth-child(odd) {
@@ -31,19 +36,4 @@ body {
 }
 .cell:nth-child(3n) {
   background-color: darkcyan;
-}
-.cell:nth-child(4n) {
-  background-color: mediumorchid;
-}
-.cell:nth-child(5n) {
-  background-color: dodgerblue;
-}
-.cell:nth-child(6n) {
-  background-color: teal;
-}
-.cell:nth-child(7n) {
-  background-color: rosybrown;
-}
-.cell:nth-child(8n) {
-  background-color: lightseagreen;
 }
