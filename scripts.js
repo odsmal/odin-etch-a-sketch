@@ -6,6 +6,11 @@ function lowerBrightness(event) {
   }
 }
 
+function randomizeColor(event) {
+  const randomColor = "#" + (((1 << 24) * Math.random()) | 0).toString(16);
+  event.target.style.setProperty("background-color", randomColor);
+}
+
 function createGrid(number) {
   cellContainer.replaceChildren();
   for (let i = 0; i < number * number; i++) {
@@ -23,17 +28,18 @@ function getGrid() {
     alert("Enter a number in the 1-100 range");
     return;
   }
-  gridSide = answer;
+  gridSize = answer;
   createGrid(answer);
 }
 
 const cellContainer = document.querySelector(".cell-container");
 const resetBtn = document.querySelector(".reset-btn");
 const promptBtn = document.querySelector(".prompt-btn");
-let gridSide = 10;
+let gridSize = 10;
 
 cellContainer.addEventListener("mouseover", lowerBrightness);
-resetBtn.addEventListener("click", () => createGrid(gridSide));
+cellContainer.addEventListener("mouseover", randomizeColor);
+resetBtn.addEventListener("click", () => createGrid(gridSize));
 promptBtn.addEventListener("click", getGrid);
 
-createGrid(gridSide);
+createGrid(gridSize);

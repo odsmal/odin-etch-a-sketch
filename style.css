@@ -28,12 +28,6 @@ button {
   height: 500px;
 }
 
-.cell:nth-child(odd) {
+.cell {
   background-color: wheat;
-}
-.cell:nth-child(even) {
-  background-color: mediumseagreen;
-}
-.cell:nth-child(3n) {
-  background-color: darkcyan;
 }
